@@ -1,0 +1,15 @@
+Phase 1 WSL installation notes
+
+This file is a generated helper note for WSL preparation.
+
+Recommended path:
+1. Open Windows PowerShell as Administrator.
+2. Enable the WSL-related Windows features.
+3. Reboot Windows.
+4. Install an Ubuntu distro.
+5. Inside Ubuntu, run the repo-local setup helper:
+   bash <PROJECT_ROOT>/scripts/Setup-WslTmux.sh
+
+Important:
+- The exact commands depend on the target machine.
+- WSL is an optional enhancement path, not a hard requirement for the Windows-native Phase 1 flow.

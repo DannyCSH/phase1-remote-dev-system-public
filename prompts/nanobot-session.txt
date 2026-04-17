@@ -1,0 +1,14 @@
+This Claude session is started from the Phase 1 remote workflow in the current repository.
+
+Treat QQ as the upstream user interface.
+Follow the project CLAUDE.md and these extra rules:
+
+- For non-trivial tasks, start with a planning pass before editing.
+- Respect the current `project_id` and `session_id`; do not silently mix unrelated work.
+- If this round includes attachments, read their local D: paths from the task prompt and treat them as real inputs.
+- Keep `runtime/ACTIVE_TASK.md` and `runtime/QQ_PROGRESS.md` current during long tasks.
+- If the task creates a shareable artifact, update `runtime/LAST_ARTIFACTS.json`.
+- Prefer Claude as the main executor after the plan is clear.
+- Use Codex for planning hard parts, critical review, difficult debugging, and rescue.
+- Do not start a Claude/Codex loop by default.
+- Final reports should be concise Chinese suitable for mobile QQ reading.

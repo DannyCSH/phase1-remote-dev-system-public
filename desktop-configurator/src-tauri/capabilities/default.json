@@ -1,0 +1,9 @@
+{
+  "identifier": "default",
+  "description": "Default desktop configurator permissions.",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "dialog:default"
+  ]
+}

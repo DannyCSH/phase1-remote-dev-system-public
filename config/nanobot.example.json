@@ -1,0 +1,154 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "${PROJECT_ROOT}",
+      "model": "MiniMax-M2.7",
+      "provider": "minimax",
+      "maxTokens": 8192,
+      "contextWindowTokens": 65536,
+      "temperature": 0.1,
+      "maxToolIterations": 200,
+      "maxToolResultChars": 16000,
+      "providerRetryMode": "standard",
+      "reasoningEffort": null,
+      "timezone": "Asia/Shanghai",
+      "unifiedSession": true,
+      "dream": {
+        "intervalH": 2,
+        "modelOverride": null,
+        "maxBatchSize": 20,
+        "maxIterations": 10
+      }
+    }
+  },
+  "channels": {
+    "sendProgress": false,
+    "sendToolHints": false,
+    "sendMaxRetries": 3,
+    "transcriptionProvider": "groq",
+    "qq": {
+      "enabled": true,
+      "appId": "${QQ_APP_ID}",
+      "secret": "${QQ_APP_SECRET}",
+      "allowFrom": [
+        "${QQ_OPENID}"
+      ],
+      "msgFormat": "plain",
+      "ackMessage": "",
+      "mediaDir": "${PROJECT_ROOT}\\runtime\\media\\qq",
+      "downloadChunkSize": 262144,
+      "downloadMaxBytes": 209715200
+    }
+  },
+  "providers": {
+    "minimax": {
+      "apiKey": "${MINIMAX_API_KEY}",
+      "apiBase": "https://api.minimaxi.com/v1",
+      "extraHeaders": null
+    },
+    "anthropic": {
+      "apiKey": "",
+      "apiBase": null,
+      "extraHeaders": null
+    },
+    "openai": {
+      "apiKey": "",
+      "apiBase": null,
+      "extraHeaders": null
+    },
+    "openrouter": {
+      "apiKey": "",
+      "apiBase": null,
+      "extraHeaders": null
+    },
+    "groq": {
+      "apiKey": "",
+      "apiBase": null,
+      "extraHeaders": null
+    }
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 8900,
+    "timeout": 120.0
+  },
+  "gateway": {
+    "host": "0.0.0.0",
+    "port": 18790,
+    "heartbeat": {
+      "enabled": false,
+      "intervalS": 1800,
+      "keepRecentMessages": 8
+    }
+  },
+  "tools": {
+    "web": {
+      "enable": true,
+      "proxy": null,
+      "search": {
+        "provider": "duckduckgo",
+        "apiKey": "",
+        "baseUrl": "",
+        "maxResults": 5,
+        "timeout": 30
+      }
+    },
+    "exec": {
+      "enable": true,
+      "timeout": 120,
+      "pathAppend": "",
+      "sandbox": "",
+      "allowedEnvKeys": []
+    },
+    "restrictToWorkspace": true,
+    "mcpServers": {},
+    "ssrfWhitelist": []
+  },
+  "phase1": {
+    "project": {
+      "defaultId": "phase1-remote-dev",
+      "defaultRoot": "${PROJECT_ROOT}",
+      "allowedRoots": [
+        "${PROJECT_ROOT}",
+        "${PROJECT_ROOT}\\workspace"
+      ]
+    },
+    "session": {
+      "debounceSeconds": 18,
+      "recentContextItems": 8,
+      "recentMessageIdLimit": 64,
+      "globalMessageIdTtlSeconds": 604800,
+      "maxBatchItems": 20
+    },
+    "attachments": {
+      "allowTextPathPromotion": false,
+      "allowedRoots": [
+        "${PROJECT_ROOT}\\runtime\\media"
+      ]
+    },
+    "computerSearch": {
+      "enabled": true,
+      "allowedRoots": [],
+      "historyMatchLimit": 8
+    },
+    "artifacts": {
+      "maxFiles": 0,
+      "maxTotalBytes": 83886080,
+      "maxSingleFileBytes": 26214400,
+      "qqMaxUploadBytes": 26214400,
+      "zipThreshold": 0,
+      "zipNamePrefix": "phase1-artifacts",
+      "preferDirectSend": true,
+      "interFileDelayMs": 300,
+      "directSendNoticeThreshold": 8,
+      "allowedRoots": []
+    },
+    "heartbeat": {
+      "intervalSeconds": 1800
+    },
+    "autostart": {
+      "enabled": true,
+      "taskName": "Phase1AutoStart"
+    }
+  }
+}
