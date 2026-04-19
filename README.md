@@ -247,6 +247,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\Check-Phase1Env.ps1
 ## 文档入口
 
 - [架构与流程图](./docs/PHASE1_ARCHITECTURE_FLOW_CN.md)
+- [GitHub 可安装发行版完整流程图](./docs/PHASE1_GITHUB_RELEASE_FULL_FLOW_CN.md)
 - [GitHub 下载部署指南](./docs/PHASE1_GITHUB_DEPLOY_GUIDE_CN.md)
 - [发布前检查清单](./docs/PHASE1_RELEASE_CHECKLIST_CN.md)
 - [用户手册](./docs/PHASE1_USER_MANUAL_CN.md)
