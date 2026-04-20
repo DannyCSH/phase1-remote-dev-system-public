@@ -26,57 +26,7 @@
 更完整的多张详细流程图在：
 [PHASE1_ARCHITECTURE_FLOW_CN.md](./docs/PHASE1_ARCHITECTURE_FLOW_CN.md)
 
-```mermaid
-flowchart LR
-    subgraph UserSide["用户侧"]
-        U1["手机 QQ 用户"]
-    end
-
-    subgraph ChannelSide["消息通道"]
-        Q1["QQ 官方消息通道"]
-        Q2["NanoBot 网关"]
-    end
-
-    subgraph Phase1["Phase 1 本地系统"]
-        P1["scripts/Launch-Phase1Task.ps1"]
-        P2["app/phase1_router_queue.py"]
-        P3["runtime/queue/pending"]
-        P4["app/phase1_worker.py"]
-        P5["app/phase1_admin_relay.py"]
-        P6["runtime/tasks / sessions / projects"]
-        P7["runtime/logs / health.json"]
-    end
-
-    subgraph AIChain["AI 执行链路"]
-        A1["Codex 规划 / 拆解"]
-        A2["Claude Code 主执行"]
-        A3["Codex 复审 / 对抗式审查"]
-    end
-
-    subgraph Ops["启动与运维"]
-        S1["桌面配置器"]
-        S2["Start-Phase1Stack.ps1"]
-        S3["Get-Phase1Status.ps1"]
-        S4["Start-Phase1StabilityRun.ps1"]
-    end
-
-    U1 --> Q1 --> Q2 --> P1 --> P2
-    P2 -->|"本地命令直接回复"| Q2
-    P2 -->|"普通任务 / 搜索 / 发文件 / 健康探针"| P3 --> P4
-    P4 --> A1 --> A2 --> A3 --> P4
-    P4 -->|"需要管理员权限"| P5 --> A2
-    P4 --> P6
-    P4 --> P7
-    P4 --> Q2 --> Q1 --> U1
-
-    S1 --> S2
-    S1 --> S3
-    S2 --> P2
-    S2 --> P4
-    S3 --> P7
-    S4 --> P2
-    S4 --> P4
-```
+![Phase 1 首页架构图](./docs/assets/flowcharts/readme-overview.png)
 
 ## 这套系统能做什么
 
